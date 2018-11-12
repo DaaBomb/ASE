@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<!-- navbar-->
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Kickstart</a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">company name</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Teams</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Assignments</a></li>
+            <li><a href="#">Schedule</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span
+                        class="glyphicon glyphicon-bell"></span>
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    {% if pages %}
+                        {% for page in pages %}
+                            <li><a href="#">{{ page.name }}</a></li>
+                        {% endfor %}
+                    <li><a href="notifications/">show all notification</a>
+                    {% else %}
+                    <li>No notifications</li>
+                    {% endif %}
+                </ul>
+            </li>
+            <li><a href="#" class="navbar-brand">Hey CEO!</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!--header-->
+
+<div class="container-fluid">
+    <div class="jumbotron">
+        <h1 class="text-center">Hey CEO!</h1>
+        <p class="text-center">
+            <small>Let's get started!</small>
+        <p>
+    </div>
+</div>
+
+</body>
+</html>
