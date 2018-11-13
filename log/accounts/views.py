@@ -12,6 +12,8 @@ from .models import UserProfile
 @login_required
 def home(request):
     return render(request,'accounts/home.html')
+def index(request):
+    return render(request,'accounts/index.html')
 def register(request):
      if request.method=='POST':
          form1=RegistrationForm(request.POST)

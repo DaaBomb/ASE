@@ -5,6 +5,12 @@
     rel="stylesheet"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+   
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  
 
     {% load static %}
     <link rel="stylesheet" href="{% static 'accounts\styles.css' %}" type ="text/css">
@@ -12,14 +18,17 @@
     <title></title>
     {% endblock %}
   </head>
-  <body>
-    <br>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">Team Manager</a>
+  <body style="margin-top:10px;">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top " >
+      <a class="navbar-brand" href="/"><big<b> <i>Kick Start</b></i></big></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbar">
+
         {% if user.is_authenticated %}
             <ul class="navbar-nav mr-auto">
               <li><a class="nav-link" href="/accounts/">Home</a></li>
@@ -27,12 +36,9 @@
               <li><a class="nav-link" href='/accounts/profile'>View Profile</a></li>
               <li><a class="nav-link" href='/accounts/profile/edit'>Edit Profile</a></li>
               <li><a class="nav-link" href='/accounts/change-password'>Change Password</a></li>
-
-            </ul>
-            {% else %}
-            <ul class="navbar-nav">
               <li><a class="nav-link" href='/accounts/reset-password'>Reset Password</a></li>
             </ul>
+            {% else %}
             <ul class="navbar-nav ml-auto">
               <li><a class="nav-link" href='/accounts/login'>Login</a></li>
               <li><a class="nav-link" href="/accounts/register">Register</a></li>

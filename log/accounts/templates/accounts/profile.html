@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
 
 {% block head %}
   <title>USER PROFILE PAGE</title>
 {% endblock %}
 
 {% block body %}
-
-  <div class="container">
+<br><br>
+<div class="i6">
+  <div class="container" id="f4">
     <h1> Profile page</h1>
     <p> Username : {{user}} </p>
     <p> First Name: {{user.first_name}} </p>
@@ -17,4 +20,5 @@
     <p> Company: {{user.userprofile.company_name}} </p>
     <p> City: {{user.userprofile.city}} </p>
   </div>
+</div>
 {% endblock %}

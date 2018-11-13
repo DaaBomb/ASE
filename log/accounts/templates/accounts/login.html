@@ -1,19 +1,32 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
   {% block head %}
+  
+
   <title>Login Page</title>
+  <link href="{% static 'accounts/style.css' %}" type="text/css" rel="stylesheet" >
+  
   {% endblock %}
 
   {% block body %}
-  <div class="container">
-    <h1>Welcome</h1>
-    <p>
-      you can login here
+</br></br>
+  <div id="i5">  
+    <div class="container" id="f1">
+    
+    <h1 id="h1_1"><b> Login</b> </h1> 
+      
+      <form method="post" autocomplete="on">
+        {% csrf_token %}
+        {{form|crispy}}
+        
+        </br>
+        <p style="padding-right: 5px;">
+      <button type="submit" class="button" >Login</button></br></br>
+      <button class="button" href="/" >Sign Up</button>
     </p>
-    <h2> Login </h2>
-    <form method="post">
-      {% csrf_token %}
-      {{form.as_p}}
-      <button type="submit">Login</button>
     </form>
+  
   </div>
+</div>
   {% endblock %}
