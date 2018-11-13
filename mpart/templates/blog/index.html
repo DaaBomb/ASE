@@ -7,17 +7,24 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Disqus</title>
+    <style>
+        a, a:hover{
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
 
 {% if posts %}
     {% for post in posts %}
-        <div class="container">
-        <p class="page-header">by {{ post.author }} on {{ post.timestamp|date:"d M, Y  g:i A" }}</p>
-        <h1>{{ post.title }}</h1>
+        <div class="container" style="background-color: lightgray;border-radius: 20px;padding: 25px;">
+        <p>by {{ post.author }} on {{ post.timestamp|date:"d M, Y  g:i A" }}</p>
+            <h1 class="page-header"><a href="{% url 'details' pk=post.pk %}">{{ post.title }}</a></h1>
         <p>{{ post.content }}</p>
+            <a href="{% url 'details' pk=post.pk %}">Comments<span class="badge badge-pill badge-primary">{{ post.comments.count }}</span></a>
         </div>
+        <br><br>
     {% endfor %}
 {% endif %}
 </body>
