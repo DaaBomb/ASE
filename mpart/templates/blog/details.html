@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <title>{{ posts.title }}</title>
+</head>
+<body>
+{% for post in posts %}
+    <div class="container" style="padding: 30px;background-color: #e7e7e7;border-radius: 25px;">
+    <p class="datetime">by {{ post.author }} on {{ post.timestamp|date:"d M, Y  g:i A" }}</p>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <hr style="border-color: black;">
+    {% for comment in post.comments.all %}
+        <div class="container" style="background-color: #a3a4ff;border-radius: 15px;padding: 15px;width: 97%">
+            <div class="row">
+                <div class="col-lg-10">
+                    <h4>{{ comment.author }}:</h4> <p>{{ comment.content }}</p>
+                </div>
+                <div class="col-lg-2">
+                <small>{{ comment.timestamp }}</small>
+                </div>
+            </div>
+        </div>
+        <br><br>
+    {% empty %}
+        <p>No comments here yet :(</p>
+    {% endfor %}
+{% endfor %}
+</div>
+</body>
+</html>
