@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://harshniketseta.github.io/popupMultiSelect/dist/stylesheets/multiselect.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://harshniketseta.github.io/popupMultiSelect/dist/javascripts/multiselect.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Kickstart</a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">company name</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Teams</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="/todo_app/">Assignments</a></li>
+                <li><a href="#">Schedule</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span
+                            class="glyphicon glyphicon-bell"></span>
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                    <!--    {% if pages %}
+                            {% for page in pages %}
+                                <li><a href="#">{{ page.name }}</a></li>
+                            {% endfor %}
+                        <li><a href="notifications/">show all notification</a>
+                        {% else %}
+                        <li>No notifications</li>
+                        {% endif %}-->
+                    </ul>
+                </li>
+                <li><a href="#" class="navbar-brand">Hey CEO!</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+    <div class="jumbotron">
+
+
+    <form method="post">
+      <div class="form-group">
+      <label for="id_work_title">Work title</label>
+      <input type="text" name="work_title" class = "form-control" placeholder="enter your work title" required id = "id_work_title">
+      <br>
+      <label for="id_work_descript">Work Description: </label>
+      <textarea name="work_descript" rows="8" cols="80" class = "form-control" placeholder="enter the Description"></textarea>
+      <br>
+      <label for="id_deadline">Deadline : </label>
+      <input type="date" name="deadline" id = "id_deadline" class="form-control">
+      {% csrf_token %}
+    <br>
+    <label for="my-language">People to work on it : </label>
+      <select multiple="multiple" name="my-language" id="my-language" class="form-control" style="border : 0.5px solid black;">
+          {% for each in count %}
+          <option>{{ each }}</option>
+          {% endfor %}
+      </select>
+      <br>
+      <input type="submit" value="Submit" class ="btn btn-primary">
+          </div>
+    </div>
+         </form>
+           </div>
+         <script type="text/javascript">
+           $("#my-language").multiselect(
+               {
+                 title: "Select Language",
+               });
+
+
+         </script>
+  </body>
+</html>
