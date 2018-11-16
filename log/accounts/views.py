@@ -14,6 +14,8 @@ def home(request):
     return render(request,'accounts/home.html')
 def index(request):
     return render(request,'accounts/index.html')
+def calender(request):
+    return render(request,'accounts/calender.html')
 def register(request):
      if request.method=='POST':
          form1=RegistrationForm(request.POST)

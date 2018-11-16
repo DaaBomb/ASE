@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block head %}
+
+<title>Kick Start</title>
+
+{% endblock %} 
+
+{% block body %}
+
+  <br><br>
+<div id="calendar">
+    <div id="calendar_header">
+      <i class="icon-chevron-left" style="margin-top:-10px;"></i>
+        <h1 style="display: inline;margin:0.8rem 0 1.68rem 0"></h1>
+      <i class="icon-chevron-right" style="margin-top:-10px;"></i>
+    </div>
+    <div id="calendar_weekdays"></div>
+    <div id="calendar_content"></div>
+</div>
+
+{% endblock %}
