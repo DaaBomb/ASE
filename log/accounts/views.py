@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponse,redirect
 from accounts.forms  import(
- RegistrationForm,
+RegistrationForm,
 EditProfileForm,customreg , ChangeProfileForm)
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm,PasswordChangeForm
