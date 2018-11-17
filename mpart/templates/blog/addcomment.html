@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}x
+
+{% block body %}
+    <br><br>
+
+    <div class="shadow-lg p-4 mb-4" style="background-color: cornsilk">
+
+        <p class="display-2">Add comment</p>
+        <hr>
+        <form method="POST">
+            {% csrf_token %}
+            <h4 class="display-5"><span class="font-italic">Comment:</span></h4><br>
+            {{ form.content }}
+
+            <br><br>
+            <button type="submit" class="save btn btn-default" style="border-radius:19px;">Post</button>
+        </form>
+    </div>
+{% endblock %}

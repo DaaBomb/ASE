@@ -8,13 +8,13 @@ class post(models.Model):
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return self.title
+        return str(self.title)
 
 class comment(models.Model):
-    post = models.ForeignKey('blog.post', on_delete=models.CASCADE, related_name='comments')
-    content = models.TextField()
+    post = models.ForeignKey(post, on_delete=models.CASCADE,default='')
+    content = models.CharField(max_length=1000)
     timestamp = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return self.content
+        return str(self.content)
