@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm,PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
-from .models import UserProfile
+from .models import UserProfile,recent_activity 
 # Create your views here.
 
 @login_required
@@ -14,8 +14,14 @@ def home(request):
     return render(request,'accounts/home.html')
 def index(request):
     return render(request,'accounts/index.html')
+
 def calender(request):
-    return render(request,'accounts/calender.html')
+    context={
+        'recent_activity':recent_activity.objects.all()
+    }
+    return render(request,'accounts/calender.html',context)
+
+
 def register(request):
      if request.method=='POST':
          form1=RegistrationForm(request.POST)

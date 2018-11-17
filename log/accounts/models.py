@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from django.utils import timezone
 
 # Create your models here.{Database Table models}
 
@@ -19,6 +20,16 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+class recent_activity(models.Model):
+    recent_act=models.CharField(max_length=100, default='')
+    date=models.DateField(default=timezone.now)
+    user=models.ForeignKey(User,on_delete=models.CASCADE) 
+
+
+
+
+
 
 '''def create_profile(sender,**kwargs):
     if kwargs['created']:

@@ -1,6 +1,6 @@
 body{
-  /*background:white url("images/.jpg");background-repeat: no-repeat;background-size: cover;
-  */background-color:#87cefa;
+  background:white url("images/b1.webp");background-repeat: no-repeat;background-size: cover;
+  background-color:white;
   color: #333333;
   margin-top: 5rem;
   
@@ -170,7 +170,7 @@ h1, h2, h3, h5, h6 {
   float: left;
 }
 #calendar_content div:hover{
-  background-color: #F8F8F8;
+  background-color: black;
 }
 #calendar_content div.blank{
   background-color: white;

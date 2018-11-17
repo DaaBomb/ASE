@@ -22,10 +22,19 @@
       <p> City: {{user.userprofile.city}} </p>
     </div>
     <div class="column1"  >
+        
+        {% if user.userprofile.image %}
+          <img src="{{user.userprofile.images.url}}" alt="profile-pic" style="width:200px;border-radius:50%">
+
+        {% else %}
+
+
         <p > 
+
           <br><br><br><br><br>&nbsp;&nbsp;&nbsp;
           <img src="../../static/accounts/images/profile.png"  style="width:200px;border-radius:50%">
         </p>
+        {% endif %}
     </div>
  </div>
 
