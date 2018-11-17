@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <title>EDIT PROFILE PAGE</title>
+{% endblock %}
+
+{% block body %}
+
+  <div class="container">
+    <form method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      {{form1.as_p}}
+      <button type="submit">Submit</button>
+    </form>
+    <br>
+  </div>
+{% endblock %}

@@ -1,31 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta charset="UTF-8">
-    <title>Disqus</title>
-    <style>
-        a, a:hover{
-            text-decoration: none;
-        }
-    </style>
-</head>
-<body>
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% block body %}
+    <br><br><br>
 
-{% if posts %}
-    {% for post in posts %}
-        <div class="container" style="background-color: lightgray;border-radius: 20px;padding: 25px;">
-        <p>by {{ post.author }} on {{ post.timestamp|date:"d M, Y  g:i A" }}</p>
-            <h1 class="page-header"><a href="{% url 'details' pk=post.pk %}">{{ post.title }}</a></h1>
-        <p>{{ post.content }}</p>
-            <a href="{% url 'details' pk=post.pk %}">Comments<span class="badge badge-pill badge-primary">{{ post.comments.count }}</span></a>
-        </div>
-        <br><br>
-    {% endfor %}
-{% endif %}
-</body>
-</html>
+    <p class="text-center">
+        <a href="{% url 'newpost' %}" class="btn btn-warning" role="button" style="border-radius: 20px;color: white;">Add
+            new post <span class="fa fa-plus-circle"></span></a>
+    </p>
+    {% if posts %}
+        {% for post in posts %}
+            <div class="shadow-lg p-4 mb-4" style="background-color: #47c2cf;color: white">
+                <div class="media">
+                    <img src="{% static 'images/default.png' %}" class="align-self-start mr-3 rounded-circle"
+                         style="width:60px">
+                    <div class="media-body">
+                        <p><span class="font-italic"><small> posted by</small></span><span
+                                class="lead"> {{ post.author }} </span><br><span class="font-italic"><small>{{ post.timestamp|date:"d M, y  g:i A" }}</small></span>
+                        </p>
+                        <hr style="border-color: #ffffff94">
+                        <h1 class="display-3"><a href="{% url 'details' pk=post.pk %}">{{ post.title }}</a></h1>
+                        <p class="font-weight-light" style="padding-top: 5px;">{{ post.content }}</p>
+                        <hr style="border-color: #ffffff94">
+                        <a href="{% url 'details' pk=post.pk %}">Comments <span class="badge badge-pill badge-primary">{{ post.comment_set.count }}</span></a>
+                    </div>
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
