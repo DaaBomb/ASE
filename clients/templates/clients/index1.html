@@ -1,0 +1,44 @@
+{% extends "homepage.html" %}
+
+
+{% block content %}
+    <div class="container" style="border-radius: 20px;padding: 25px;">
+
+        <center>
+            <h3>List of Clients</h3><br>
+        </center>
+        {% if all_clients %}
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Name of Client</th>
+                    <th scope="col">project associated</th>
+                    <th scope="col">phone no.</th>
+                    <th scope="col">email</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for client in all_clients %}
+
+                    <tr>
+                        <th scope="row" style="font-weight: 600">{{ client.name }}</th>
+                        <td>{{ client.project_name }}</td>
+                        <td>{{ client.phno }}</td>
+                        <td>{{ client.email }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        {% else %}
+            <h3>no clients</h3>
+        {% endif %}
+
+        <center>
+            <a href="{% url 'clients:create' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" >
+                <i class="fa fa-edit"></i>
+                Create new client</a>
+        </center>
+    </div>
+{% endblock %}
