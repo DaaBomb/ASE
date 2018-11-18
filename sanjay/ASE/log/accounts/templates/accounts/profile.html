@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block head %}
+  <title>USER PROFILE PAGE</title>
+{% endblock %}
+
+{% block body %}
+<br><br>
+
+ <div class="container row" id="f4">
+    <div class="column1">
+      <h1> User Profile</h1>
+      <p> Username : {{user}} </p>
+      <p> First Name: {{user.first_name}} </p>
+      <p> Last Name: {{user.last_name}} </p>
+      <p> Email: {{user.email}} </p>
+      <p> Description: {{user.userprofile.description}} </p>
+      <p> Phone: {{user.userprofile.phone}} </p>
+      <p> Company: {{user.userprofile.company_name}} </p>
+      <p> City: {{user.userprofile.city}} </p>
+    </div>
+    <div class="column1"  >
+        
+        {% if user.userprofile.image %}
+          <img src="{{user.userprofile.images.url}}" alt="profile-pic" style="width:200px;border-radius:50%">
+
+        {% else %}
+
+
+        <p > 
+
+          <br><br><br><br><br>&nbsp;&nbsp;&nbsp;
+          <img src="../../static/accounts/images/profile.png"  style="width:200px;border-radius:50%">
+        </p>
+        {% endif %}
+    </div>
+ </div>
+
+{% endblock %}
+

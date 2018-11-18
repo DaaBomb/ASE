@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block head %}
+  <title>EDIT PROFILE PAGE</title>
+{% endblock %}
+
+{% block body %}
+<br><br>  <br>
+<div id="i5">
+  <div class="container" id="f4">
+    <form method="post">
+      {% csrf_token %}
+      {{form|crispy}}
+      {{form1|crispy}}
+      <button type="submit">Submit</button>
+    </form>
+    <br>
+  </div>
+</div>
+{% endblock %}
