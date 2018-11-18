@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Kickstart</a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">company name</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Teams</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Assignments</a></li>
+                <li><a href="#">Schedule</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span
+                            class="glyphicon glyphicon-bell"></span>
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                    <!---    {% if pages %}
+                            {% for page in pages %}
+                                <li><a href="#">{{ page.name }}</a></li>
+                            {% endfor %}
+                        <li><a href="notifications/">show all notification</a>
+                        {% else %}
+                        <li>No notifications</li>
+                        {% endif %}-->
+                    </ul>
+                </li>
+                <li><a href="#" class="navbar-brand">Hey CEO!</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+      <br>
+
+      <center><h1 class="headings">MY RECENT ACTIVITY</h1></center>
+        <br>
+        <div class="jumbotron">
+      {% if trials%}
+      <ol>
+        {% for each in trials %}
+         {% if each.emp_id == 'manasa' %}
+        <ul>
+          <center>
+          <div class="card" style="width: 70%;">
+        <div class="card-body">
+
+            <h5 class="card-title">{{each.dates}} , {{each.times}}</h5>
+          <center>
+          <p class="card-text">
+            <b>{{each.emp_id}}</b> completed the task of <b>{{each.task_done}}</b>
+        </div>
+      </div>
+    </center>
+        <!---  <li>task : {{each.task_done}}</li>
+          <li>date : {{each.date}}</li>
+          <li>time : {{each.time}}</li>-->
+        </center>
+        </ul>
+        {% endif %}
+        {% endfor %}
+      </ol>
+      {% else %}
+       <h3>not possible</h3>
+      {% endif %}
+    </div>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{%  load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>MY RECENT ACTIVITY</title>
+    <link rel="stylesheet" href="{% static "history/users.css" %}">
+  </head>
+  <body>
+    <center><h1>HERE'S THE DATABASE</h1></center>
+    {% if trials%}
+    <ol>
+      {% for each in trials %}
+      <li>Info</li>
+      <ul>
+        <li>task : {{each.task_done}}</li>
+        <li>date : {{each.date}}</li>
+        <li>time : {{each.time}}</li>
+      </ul>
+      {% endfor %}
+    </ol>
+    {% else %}
+     <h3>not possible</h3>
+    {% endif %}
+  </body>
+</html>
